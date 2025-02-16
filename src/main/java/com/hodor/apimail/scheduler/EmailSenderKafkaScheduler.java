@@ -58,7 +58,7 @@ public class EmailSenderKafkaScheduler {
                 entity.setStatus(EmailStatus.SENT);
             } catch (Exception e) {
                 log.error(e.getMessage(), e);
-                entity.setReason(e.getMessage());
+                entity.setFailedReason(e.getMessage());
                 entity.setStatus(EmailStatus.FAILED);
             } finally {
                 emailRepository.save(entity);
